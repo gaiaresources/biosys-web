@@ -54,8 +54,7 @@
             <td>
                 <span *ngIf="rowData.consumed">{{ rowData.id }}</span>
                 <a class="table-link" *ngIf="!rowData.consumed"
-                   [routerLink]="'/data/projects/' + dataset.project + '/datasets/' + dataset.id + '/record/' +
-                    rowData.id">
+                   [routerLink]="getEditRecordRoute(rowData.id)">
                     {{ rowData.id }}
                 </a>
             </td>

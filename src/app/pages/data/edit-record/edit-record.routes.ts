@@ -14,5 +14,17 @@ export const EditRecordRoutes: Route[] = [
         component: EditRecordComponent,
         canActivate: [SSOAuthGuard],
         canActivateChild: [SSOAuthGuard]
+    },
+    {
+        path: 'data/projects/:projId/datasets/:datasetId/create-child-record',
+        component: EditRecordComponent,
+        canActivate: [SSOAuthGuard],
+        canActivateChild: [SSOAuthGuard]
+    },
+    {
+        path: 'data/projects/:projId/datasets/:datasetId/child-record/:recordId',
+        component: EditRecordComponent,
+        canActivate: [SSOAuthGuard],
+        canActivateChild: [SSOAuthGuard]
     }
 ];

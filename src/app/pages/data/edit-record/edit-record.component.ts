@@ -11,7 +11,7 @@ import { AMBIGUOUS_DATE_PATTERN } from '../../../../biosys-core/utils/consts';
 
 import { DEFAULT_GROWL_LIFE } from '../../../shared/utils/consts';
 import { from } from 'rxjs/observable/from';
-import { map, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 
 @Component({
@@ -30,10 +30,9 @@ export class EditRecordComponent implements OnInit {
 
     public record: Record;
     public dataset: Dataset;
-
-    public hasSubRecords: boolean = false;
-
+    public childDataset: Dataset;
     public imagesMetadata: object[] = [];
+    public parentRecordId: number;
 
     @ViewChild(FileUpload)
     public imageUploader;
@@ -49,6 +48,8 @@ export class EditRecordComponent implements OnInit {
 
         let projId: number = Number(params['projId']);
         let datasetId: number = Number(params['datasetId']);
+        this.parentRecordId = Number(params['parentRecordId']);
+        this.completeUrl = params['completeUrl'];
 
         this.apiService.getProjectById(projId).subscribe(
             (project: Project) => this.breadcrumbItems.splice(1, 0, {
@@ -68,9 +69,17 @@ export class EditRecordComponent implements OnInit {
 
                 if ('recordId' in params) {
                     const recordId = +params['recordId'];
+
+                    // TODO: refactor inner subscriptions into mergeMap
                     this.apiService.getRecordById(recordId).subscribe(
                         (record: Record) => {
                             this.record = this.formatRecord(record);
+                            if (record.children && record.children.length) {
+                                this.apiService.getRecordById(record.children[0]).subscribe(
+                                    (childRecord: Record) => this.apiService.getDatasetById(childRecord.dataset).
+                                        subscribe((childDataset: Dataset) => this.childDataset = childDataset)
+                                )
+                            }
                         },
                         (error: APIError) => console.log('error.msg', error.msg)
                     );
@@ -101,8 +110,6 @@ export class EditRecordComponent implements OnInit {
             {label: 'Enter Records - Projects', routerLink: ['/data/projects']},
             {label: 'recordId' in params ? 'Edit Record' : 'Create Record'}
         ];
-
-        this.completeUrl = '/data/projects/' + projId + '/datasets/' + datasetId;
     }
 
     public getDropdownOptions(fieldName: string, options: string[]): SelectItem[] {

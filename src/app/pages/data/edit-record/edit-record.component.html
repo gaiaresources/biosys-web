@@ -84,11 +84,13 @@
             </div>
         </div>
     </div>
-    <div *ngIf="hasSubRecords">
+    <div *ngIf="childDataset">
         <hr>
         <h4>
             Sub-Records
         </h4>
+        <biosys-edit-records-table [dataset]="childDataset" [parentRecord]="record">
+        </biosys-edit-records-table>
     </div>
     <div>
         <hr>
