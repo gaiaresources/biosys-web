@@ -9,7 +9,7 @@
          [scrollable]="true" [style.width]="getRecordsTableWidth()"
          [(selection)]="selectedRecords"
          (onEditInit)="onRowEditInit($event)" (onEditComplete)="onRowEditComplete($event)"
-         [paginator]="true" [rows]="pageState['rowLimit']" [rowsPerPageOptions]="[10, 25, 50, 100]"
+         [paginator]="true" [rows]="pageState ? pageState['rowLimit'] : 10" [rowsPerPageOptions]="[10, 25, 50, 100]"
          [lazy]="!!dataset" (onLazyLoad)="loadRecordsLazy($event)" [loading]="!flatRecords" [totalRecords]="totalRecords">
     <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
