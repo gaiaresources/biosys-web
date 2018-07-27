@@ -42,7 +42,8 @@
                 "dev": "environments/environment.ts",
                 "staging": "environments/environment.staging.ts",
                 "dbca-uat": "environments/environment.dbca-uat.ts",
-                "dbca-prod": "environments/environment.dbca-prod.ts"
+                "dbca-prod": "environments/environment.dbca-prod.ts",
+                "uat": "environments/environment.uat.ts"
             }
         }
     ],
