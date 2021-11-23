@@ -118,12 +118,19 @@ export class EditDatasetComponent implements OnInit {
     }
 
     public onInferUpload(event: any) {
-        const response: any = JSON.parse(event.xhr.response);
+        const response: any = event.originalEvent.body;
         this.ds.name = response.name;
         this.ds.type = response.type;
         this.ds.data_package = response.data_package;
 
         this.editor.set(<JSON>this.ds.data_package);
+
+        this.messageService.add({
+            severity: 'success',
+            summary: 'Dataset successfully inferred.',
+            detail: 'The dataset was able to be inferred from the uploaded file',
+            key: 'mainToast'
+        });
     }
 
     public onInferBeforeUpload(event: any) {
@@ -131,13 +138,15 @@ export class EditDatasetComponent implements OnInit {
     }
 
     public onInferError(event: any) {
-        const response = JSON.parse(event.xhr.response);
+        const response = event.error.error;
 
         if ('errors' in response) {
             for (const error of response.errors) {
-                this.fileUpload.msgs.push({
+                this.messageService.add({
                     severity: 'error',
-                    summary: error
+                    summary: 'Dataset infer error',
+                    detail: error,
+                    key: 'mainToast'
                 });
             }
         }
