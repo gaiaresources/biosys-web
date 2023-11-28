@@ -41,7 +41,7 @@ import { AdminOnlyComponent } from './pages/accounts/admin-only/admin-only.compo
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        RouterModule.forRoot(routes),
+        RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
         ToastModule,
         BiosysCoreModule,
         SharedModule,
