@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../biosys-core/services/auth.service';
 
 import { environment } from '../../../environments/environment';
 import { AuthGuard } from './auth.guard';
 
 @Injectable()
-export class SSOAuthGuard extends AuthGuard implements CanActivate {
+export class SSOAuthGuard extends AuthGuard  {
     constructor(protected authService: AuthService, protected router: Router) {
         super(authService, router);
     }

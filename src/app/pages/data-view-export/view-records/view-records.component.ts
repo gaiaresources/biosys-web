@@ -16,7 +16,6 @@ import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-project-list',
     templateUrl: 'view-records.component.html',
     styleUrls: ['view-records.component.css'],

@@ -12,7 +12,6 @@ import { environment } from '../../../environments/environment';
  * This class represents the lazy loaded HomeComponent.
  */
 @Component({
-    moduleId: module.id,
     selector: 'biosys-navbar',
     templateUrl: 'navbar.component.html',
     styleUrls: []

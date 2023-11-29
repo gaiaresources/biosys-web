@@ -20,7 +20,6 @@ import { from } from 'rxjs';
 import { MediaManagerComponent } from '../../../shared/media-manager/media-manager.component';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-edit-dataset',
     templateUrl: 'edit-dataset.component.html',
     styleUrls: ['edit-dataset.component.css'],

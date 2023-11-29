@@ -5,7 +5,6 @@ import { APIService } from '../../../../biosys-core/services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-dataset-list',
     templateUrl: 'list-datasets.component.html',
     styleUrls: [],

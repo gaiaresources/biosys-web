@@ -8,7 +8,6 @@ import { FileUpload } from 'primeng/fileupload';
 import { ACCEPTED_TYPES } from '../../../shared/utils/consts';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-upload-site',
     templateUrl: 'upload-sites.component.html',
     styleUrls: [],

@@ -9,7 +9,6 @@ import { APIService } from '../../../../biosys-core/services/api.service';
 import { formatUserFullName } from '../../../../biosys-core/utils/functions';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-edit-program',
     templateUrl: 'edit-program.component.html',
 })

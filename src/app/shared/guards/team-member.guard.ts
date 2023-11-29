@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '../../../biosys-core/services/auth.service';
 import { map, mergeMap } from 'rxjs/operators';
 import { Project, Program, User } from '../../../biosys-core/interfaces/api.interfaces';
@@ -8,7 +8,7 @@ import { APIService } from '../../../biosys-core/services/api.service';
 
 
 @Injectable()
-export class TeamMemberGuard implements CanActivate {
+export class TeamMemberGuard  {
     constructor(private authService: AuthService, private apiService: APIService) {
     }
 

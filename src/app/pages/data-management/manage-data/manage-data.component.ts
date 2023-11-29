@@ -27,7 +27,6 @@ declare global {
 }
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-dataset-list',
     templateUrl: 'manage-data.component.html',
     styleUrls: ['manage-data.component.css'],

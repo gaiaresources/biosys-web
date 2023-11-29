@@ -7,7 +7,6 @@ import { AuthService } from '../../../../biosys-core/services/auth.service';
 import { formatUserFullName } from '../../../../biosys-core/utils/functions';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-management-program-list',
     templateUrl: 'list-programs.component.html',
     styleUrls: [],

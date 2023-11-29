@@ -6,7 +6,6 @@ import { User } from '../../../../biosys-core/interfaces/api.interfaces';
 import { environment } from '../../../../environments/environment';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-login',
     templateUrl: 'login.component.html'
 })

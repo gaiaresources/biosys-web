@@ -18,7 +18,6 @@ import { getExtentFromPoint } from '../../../shared/utils/maputils';
 
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-edit-record',
     templateUrl: 'edit-record.component.html'
 })
