@@ -4,7 +4,6 @@ import { APIService } from '../../../../biosys-core/services/api.service';
 import { AuthService } from '../../../../biosys-core/services/auth.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-project-list',
     templateUrl: 'list-projects.component.html',
     styleUrls: [],

@@ -18,7 +18,6 @@ import { AuthService } from '../../../biosys-core/services/auth.service';
  * This class represents the lazy loaded HomeComponent.
  */
 @Component({
-    moduleId: module.id,
     selector: 'biosys-home',
     templateUrl: 'home.component.html',
     styleUrls: ['home.component.css'],

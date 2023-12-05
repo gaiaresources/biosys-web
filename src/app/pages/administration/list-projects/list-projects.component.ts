@@ -6,7 +6,6 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthService } from '../../../../biosys-core/services/auth.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-management-project-list',
     templateUrl: 'list-projects.component.html',
     styleUrls: [],

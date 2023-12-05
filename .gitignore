@@ -44,3 +44,4 @@ Thumbs.db
 
 # local dev files
 /local
+.angular/cache

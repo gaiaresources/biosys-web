@@ -8,7 +8,6 @@ import { APIService } from '../../../../biosys-core/services/api.service';
 import { FeatureMapComponent } from '../../../shared/featuremap/featuremap.component';
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-edit-site',
     templateUrl: 'edit-site.component.html',
     styleUrls: [],

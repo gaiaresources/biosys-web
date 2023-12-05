@@ -20,7 +20,6 @@ import { MediaManagerComponent } from '../../../shared/media-manager/media-manag
 
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-edit-project',
     templateUrl: 'edit-project.component.html',
 })

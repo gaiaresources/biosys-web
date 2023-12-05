@@ -59,6 +59,7 @@
                                                     [(ngModel)]="record.data[field.name]">
                                         </p-dropdown>
                                         <input pInputText *ngIf="!field.constraints?.enum"
+                                               [placeholder]="field.name==='Location Notes' ? 'Forest red gum in amongst riparian closed forest' : ''"
                                                [(ngModel)]="record.data[field.name]" (change)="onInputChanged()"/>
                                         <div class="text-danger">
                                             {{recordErrors[field.name]}}

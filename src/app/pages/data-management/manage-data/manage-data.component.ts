@@ -19,9 +19,14 @@ import {
 } from '../../../shared/utils/maputils';
 import { EditRecordsTableComponent } from '../../../shared/edit-records-table/edit-records-table.component';
 
+// https://stackoverflow.com/questions/69485778/new-typescript-version-does-not-include-window-navigator-mssaveblob
+declare global {
+    interface Navigator {
+        msSaveBlob?: (blob: any, defaultName?: string) => boolean;
+    }
+}
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-data-dataset-list',
     templateUrl: 'manage-data.component.html',
     styleUrls: ['manage-data.component.css'],

@@ -24,7 +24,6 @@ export class MarkerDirective {
 }
 
 @Component({
-    moduleId: module.id,
     selector: 'biosys-featuremap',
     templateUrl: 'featuremap.component.html',
     styleUrls: ['featuremap.component.css'],
