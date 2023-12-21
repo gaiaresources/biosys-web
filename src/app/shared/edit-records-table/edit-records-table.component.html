@@ -67,12 +67,12 @@
             </td>
             <td>
                 <p-checkbox [(ngModel)]="rowData._validated" binary="true" [disabled]="rowData._locked"
-                            (onChange)="onRecordValidatedChanged($event, rowData._id)"></p-checkbox>
+                            (onChange)="onRecordValidatedChanged($event.checked, rowData._id)"></p-checkbox>
             </td>
             <td [align]="canChangeLockedState ? 'center' : 'left'">
                 <span *ngIf="!canChangeLockedState">{{ rowData._locked }}</span>
                 <p-checkbox *ngIf="canChangeLockedState" [(ngModel)]="rowData._locked" binary="true"
-                            (onChange)="onRecordLockedChanged($event, rowData._id)"></p-checkbox>
+                            (onChange)="onRecordLockedChanged($event.checked, rowData._id)"></p-checkbox>
             </td>
             <!-- have editable cells if record not locked -->
             <ng-container
