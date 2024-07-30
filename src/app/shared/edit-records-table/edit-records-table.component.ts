@@ -99,6 +99,10 @@ export class EditRecordsTableComponent {
         return this._dataset;
     }
 
+    public checkColumnEditable(fieldName: string) {
+        return (fieldName === 'Reason for Invalidation') ? false : true;
+    }
+
     public reloadRecords() {
         // reload table page without resetting pagination/ordering/search params unlike reset()
         this.recordsDatatable.onLazyLoad.emit(this.recordsDatatable.createLazyLoadMetadata());
