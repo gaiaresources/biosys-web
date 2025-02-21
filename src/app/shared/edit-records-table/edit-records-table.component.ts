@@ -7,7 +7,7 @@ import { Table } from 'primeng/table';
 import * as moment from 'moment/moment';
 
 import { APIError, Dataset, Record, RecordResponse, User } from '../../../biosys-core/interfaces/api.interfaces';
-import { pyDateFormatToMomentDateFormat } from '../../../biosys-core/utils/functions';
+import {findDateTimeFormat, pyDateFormatToMomentDateFormat} from '../../../biosys-core/utils/functions';
 import { APIService } from '../../../biosys-core/services/api.service';
 import { AuthService } from '../../../biosys-core/services/auth.service';
 import { AMBIGUOUS_DATE_PATTERN } from '../../../biosys-core/utils/consts';
@@ -186,8 +186,13 @@ export class EditRecordsTableComponent {
 
         // convert Date types back to string in field's specified format (or DD/MM/YYYY if unspecified)
         for (const field of this._dataset.data_package.resources[0].schema.fields) {
-            if ((field.type === 'date' || field.type === 'datetime') && data[field.name]) {
+            if ((field.type === 'date') && data[field.name]) {
                 data[field.name] = moment(data[field.name]).format(pyDateFormatToMomentDateFormat(field.format));
+            }
+              if (field.type === 'datetime' && data[field.name]) {
+                // Make sure the datetime field stays a datetime field when we save
+                // It'll accept DD/MM/YYYY or YYYY-MM-DDTHH:mm:ss
+                data[field.name] = moment(data[field.name], findDateTimeFormat(field.format)).format();
             }
         }
 
