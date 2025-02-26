@@ -50,8 +50,14 @@
             </ng-container>
             <th>Source File</th>
             <th>Source Row</th>
-            <th>Created</th>
-            <th>Last Modified</th>
+            <th [pSortableColumn]="'created'">
+                Created
+                <p-sortIcon [field]="'created'"></p-sortIcon>
+            </th>
+            <th [pSortableColumn]="'last_modified'">
+                Last Modified
+                <p-sortIcon [field]="'last_modified'"></p-sortIcon>
+            </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData>
