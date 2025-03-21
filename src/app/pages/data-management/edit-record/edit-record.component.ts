@@ -11,7 +11,7 @@ import * as moment from 'moment/moment';
 
 import { APIError, Project, Dataset, Record, RecordMedia } from '../../../../biosys-core/interfaces/api.interfaces';
 import { APIService } from '../../../../biosys-core/services/api.service';
-import { pyDateFormatToMomentDateFormat } from '../../../../biosys-core/utils/functions';
+import { pyDateFormatToMomentDateFormat, findDateTimeFormat} from '../../../../biosys-core/utils/functions';
 import { AMBIGUOUS_DATE_PATTERN } from '../../../../biosys-core/utils/consts';
 import { getDefaultValue } from '../../../shared/utils/functions';
 import { getExtentFromPoint } from '../../../shared/utils/maputils';
@@ -176,6 +176,11 @@ export class EditRecordComponent implements OnInit {
         for (const field of this.dataset.data_package.resources[0].schema.fields) {
             if (field.type === 'date' && recordCopy.data[field.name]) {
                 recordCopy.data[field.name] = moment(recordCopy.data[field.name]).format(pyDateFormatToMomentDateFormat(field.format));
+            }
+            if (field.type === 'datetime' && recordCopy.data[field.name]) {
+                // Make sure the datetime field stays a datetime field when we save
+                // It'll accept DD/MM/YYYY or YYYY-MM-DDTHH:mm:ss
+                recordCopy.data[field.name] = moment(recordCopy.data[field.name], findDateTimeFormat(field.format)).format();
             }
         }
 
